@@ -29,5 +29,11 @@
     <ClInclude Include="include\VectorUtils">
       <Filter>Include Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Macros">
+      <Filter>Include Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -22,7 +22,9 @@
     <ClCompile Include="src\vectors.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Macros" />
     <ClInclude Include="include\VectorUtils" />
+    <ClInclude Include="src\macros.h" />
     <ClInclude Include="src\vectors.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
