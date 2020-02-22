@@ -18,22 +18,29 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\vectors.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\vectors.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\VectorUtils">
       <Filter>Include Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\macros.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Macros">
       <Filter>Include Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Timers">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vectors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+
+    <ClInclude Include="src\Timers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Timers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
