@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Function.hpp" />
     <ClCompile Include="src\Timers.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Function" />
     <ClInclude Include="include\Macros" />
     <ClInclude Include="include\Timers" />
     <ClInclude Include="include\VectorUtils" />
