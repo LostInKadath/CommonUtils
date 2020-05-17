@@ -9,7 +9,6 @@ namespace time {
 class Timer
 {
 public:
-
 	/*Measures execution time. Gets lambda object which captures all needed parameters.
 	Usage:
 		ResultType Foo(int, bool, Arg const&);
@@ -20,7 +19,7 @@ public:
 	auto Measure(Lambda&& fn)
 	{
 		const auto start = std::chrono::steady_clock::now();
-		const auto result = fn();
+		const auto result = std::forward<Lambda>(fn)();
 		const auto stop = std::chrono::steady_clock::now();
 
 		m_duration = stop - start;
@@ -37,7 +36,7 @@ public:
 	auto Measure(FuncPointer fn, Args&&... args)
 	{
 		const auto start = std::chrono::steady_clock::now();
-		const auto result = fn(std::forward<Args>(args)...);
+		const auto result = std::forward<FuncPointer>(fn)(std::forward<Args>(args)...);
 		const auto stop = std::chrono::steady_clock::now();
 
 		m_duration = stop - start;
