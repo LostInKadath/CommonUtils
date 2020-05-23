@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Function.hpp" />
+    <ClCompile Include="src\InstructionSet.cpp" />
     <ClCompile Include="src\Timers.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -27,6 +28,7 @@
     <ClInclude Include="include\Macros" />
     <ClInclude Include="include\Timers" />
     <ClInclude Include="include\VectorUtils" />
+    <ClInclude Include="src\InstructionSet.h" />
     <ClInclude Include="src\macros.h" />
     <ClInclude Include="src\Timers.h" />
     <ClInclude Include="src\vectors.h" />
