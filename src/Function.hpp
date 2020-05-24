@@ -1,28 +1,27 @@
 #include <algorithm>	// max
-#include <utility>		// exchange, forward, move
+#include <stdexcept>	// runtime_error
 #include <type_traits>	// aligned_storage, decay, reference_wrapper
-
-namespace
-{
-	// Dummy is a prototype for class callable, which contains:
-	// - a vtable-pointer,
-	// - a function pointer as a field.
-	template<typename T> struct Dummy { virtual ~Dummy(); T _val; };
-
-	static inline constexpr size_t StorageSize = std::max(sizeof(Dummy<void(*)()>), sizeof(std::reference_wrapper<char>));
-}
+#include <utility>		// exchange, forward, move
 
 template<typename T> struct Function;
 
 template<typename ReturnType, typename...Args>
 class Function<ReturnType(Args...)>
 {
+	// Dummy is a prototype for class callable, which contains:
+	// - a vtable-pointer,
+	// - a function pointer as a field.
+	template<typename T> struct Dummy { virtual ~Dummy(); T t; };
+
+	static constexpr size_t StorageSize = std::max(sizeof(Dummy<void(*)()>), sizeof(std::reference_wrapper<char>));
+
 	using storage_t = typename std::aligned_storage_t<StorageSize>;
 
 public:
-	Function() = default;
+	Function() noexcept = default;
+	Function(nullptr_t) noexcept {}
 
-	template<typename Func> Function(Func&& t)
+	template<typename Func> Function(Func t)
 	{
 		if constexpr (sizeof(*new callable(t)) <= StorageSize)
 		{
@@ -70,6 +69,8 @@ public:
 
 	ReturnType operator()(Args&&...args)
 	{
+		if (!m_callable)
+			throw std::runtime_error("Called function is empty!");
 		return m_callable->invoke(std::forward<Args>(args)...);
 	}
 
@@ -126,3 +127,5 @@ private:
 	storage_t m_storage;
 };
 
+template<typename Return, typename...Args>
+Function(Return(Args...))->Function<Return(Args...)>;
