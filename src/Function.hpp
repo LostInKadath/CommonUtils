@@ -2,8 +2,6 @@
 #include <utility>		// exchange, forward, move
 #include <type_traits>	// aligned_storage, decay, reference_wrapper
 
-#include <iostream>
-
 namespace
 {
 	// Dummy is a prototype for class callable, which contains:
